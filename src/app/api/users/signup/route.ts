@@ -2,6 +2,7 @@ import {connect}  from "@/dbConfig/dbConfig";
 import User from '@/models/userModel' ;
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from 'bcrypt'; //wrong
+import { sendEmail } from "@/helpers/mailer";
 
 
 
@@ -11,7 +12,6 @@ export const POST = async (request: NextRequest) => {
     try {
         const reqBody = await request.json();
         const {username, password, email} = reqBody;
-        console.log('api/signup -inside req')
         // Check user if already exist
         const user = await User.findOne({email})
 
@@ -30,7 +30,10 @@ export const POST = async (request: NextRequest) => {
         })
 
         // Save on Db
-        const savedUser =await newUser.save();
+        const savedUser = await newUser.save();
+
+        // Send a verification email
+        await sendEmail({email, emailType:"VERIFY", userId: savedUser._id})
         
         return NextResponse.json({
             message: "User created successfully", 
