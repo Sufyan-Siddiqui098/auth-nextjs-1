@@ -38,11 +38,11 @@ const LoginPage = () => {
 
         if(response.ok){
           toast.success(json.message)
+          router.push('/profile')
         } else{
           toast.error(json.message || json.error)
         }
 
-        router.push('/profile')
       } catch (error:any) {
         toast.error(error.message)
       } finally{
