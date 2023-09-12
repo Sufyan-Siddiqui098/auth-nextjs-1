@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-const verifyEmail = () => {
+const VerifyEmail = () => {
   const [token, setToken] = useState("");
   const [error, setError] = useState(false);
   const [verified, setVerified] = useState(false);
@@ -66,4 +66,4 @@ const verifyEmail = () => {
   );
 };
 
-export default verifyEmail;
+export default VerifyEmail;

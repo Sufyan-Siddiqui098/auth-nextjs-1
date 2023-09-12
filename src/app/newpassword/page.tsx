@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-const newPassword = () => {
+const NewPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const [token, setToken] = useState("");
@@ -70,4 +70,4 @@ const newPassword = () => {
   );
 };
 
-export default newPassword;
+export default NewPassword;

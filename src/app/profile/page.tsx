@@ -46,7 +46,7 @@ const ProflePage = () => {
         console.log('not')
         getUserdetail()
       }
-    },[])
+    },[user.username])
 
 
   return (

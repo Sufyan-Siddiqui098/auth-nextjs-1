@@ -17,9 +17,9 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center p-2">
       <header className='bg-neutral-900 min-h-[10vh] w-full p-2 rounded-sm flex item-center  md:pl-10 md:text-xl'>
         <nav className=' flex gap-2 md:gap-5  items-center  '>
-          {navLink.map((el)=>{
+          {navLink.map((el,index)=>{
             return (
-              <Link className='hover:underline' href={el.href}>{el.name}</Link>
+              <Link key={index} className='hover:underline' href={el.href}>{el.name}</Link>
             )
           })}
         </nav>
