@@ -36,7 +36,6 @@ const ProflePage = () => {
     const getUserdetail =async () => {
       const response = await fetch('/api/users/me')
       const json = await response.json();
-      console.log(json)
       setUser(json.user) 
     }
 

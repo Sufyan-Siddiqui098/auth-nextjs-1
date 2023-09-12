@@ -6,9 +6,11 @@ import toast from "react-hot-toast";
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false)
   const [verificationSent, setVerificationSend] = useState(false)
   const onReset = async() => {
     try{
+      setLoading(true)
       const res = await fetch("/api/users/reset", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -23,6 +25,8 @@ const ResetPassword = () => {
       }
     } catch (error: any) {
       toast.error(error.message)
+    } finally{
+      setLoading(false)
     }
   }
   return (
