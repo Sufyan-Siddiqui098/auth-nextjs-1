@@ -42,7 +42,7 @@ const ResetPassword = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button onClick={onReset} className="py-2 px-4 my-4 rounded-lg  bg-blue-600">Reset</button>
+      <button onClick={onReset} className={` ${loading?"opacity-70": ""} py-2 px-4 my-4 rounded-lg  bg-blue-600`}>{loading? "Loading":"Reset"}</button>
       <Link className="hover:underline" href='/login'>Login Page</Link>
       </>}
       {verificationSent && <>
