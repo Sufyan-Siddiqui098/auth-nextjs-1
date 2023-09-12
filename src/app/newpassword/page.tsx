@@ -11,7 +11,7 @@ const NewPassword = () => {
 
   useEffect(() => {
     const urlToken = window.location.search.split("=")[1];
-    const decodedToken = decodeURI(urlToken)
+    const decodedToken = decodeURIComponent(urlToken)
     setToken(decodedToken || "");
   }, []);
 
