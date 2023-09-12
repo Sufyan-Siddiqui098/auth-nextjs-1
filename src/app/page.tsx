@@ -27,10 +27,10 @@ export default function Home() {
 
       <div className="container border-2 rounded-md my-7 p-2 md:p-6">
         <h1 className='font-semibold text-2xl md:text-4xl capitalize'>Welcome to the Home page</h1>
-        <p className='my-4 flex items-center '>This is the homepage of the Auth Next.js App. If you want to logout just go to profile you'll have the logout button there.</p>
+        <p className='my-4 flex items-center '>This is the homepage of the Auth Next.js App. If you want to logout just go to profile you wll have the logout button there.</p>
        <h2 className='font-semibold mb-2 text-xl mt-8 md:text-2xl'>Functionality : </h2>
        <ul className=' list-disc ml-4'>
-        <li className='my-1'>On sign up you'll get verified by your email.</li>
+        <li className='my-1'>On sign up you will get verified by your email.</li>
         <li>If you forgot your password no problem. You can reset your password by you email</li>
        </ul>
       </div>
