@@ -11,7 +11,8 @@ const NewPassword = () => {
 
   useEffect(() => {
     const urlToken = window.location.search.split("=")[1];
-    setToken(decodeURI(urlToken) || "");
+    const decodedToken = decodeURI(urlToken)
+    setToken(decodedToken || "");
   }, []);
 
   const onChangePassword = async () => {
