@@ -8,7 +8,6 @@ export const POST = async (request: NextRequest) => {
     try{
         const reqBody = await request.json()
         const {token} = reqBody;
-        
         //Find user based on token
         const user = await User.findOne({
             verifyToken: token,
@@ -19,7 +18,6 @@ export const POST = async (request: NextRequest) => {
             return NextResponse.json({
                 message: "User not found !"}, {status: 400})
         }
-        console.log(user)
         //re-writing into DB
         user.isVerified = true;
         user.verifyToken = undefined;

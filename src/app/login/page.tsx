@@ -38,7 +38,7 @@ const LoginPage = () => {
 
         if(response.ok){
           toast.success(json.message)
-          router.push('/profile')
+          router.push('/')
         } else{
           toast.error(json.message || json.error)
         }
@@ -51,7 +51,7 @@ const LoginPage = () => {
     }
   return (
     <div className='flex gap-1 flex-col items-center justify-center min-h-screen py-2'>
-        <h1 className='text-2xl my-2 '>Login</h1>
+        <h1 className='text-2xl my-2 '>{loading?"Processing":"Login"}</h1>
         <hr />
        
         <label htmlFor="email">email</label>
@@ -77,10 +77,11 @@ const LoginPage = () => {
         disabled = {buttonDisable}
         onClick={onLogin}
         className='disabled:cursor-not-allowed disabled:opacity-60 p-2 border border-gray-100 
-        rounded-lg my-4 focus:outline-none
+        rounded-lg mt-5 focus:outline-none
          focus:border-gray-600'>Login here</button>
 
-         <Link href='/signup'>Visit Signup page</Link>
+         <Link className='my-3 text-blue-500 hover:underline' href='/resetpassword'>Reset Password</Link>
+         <Link className='hover:underline' href='/signup'>Visit Signup page</Link>
     </div>
   )
 }
