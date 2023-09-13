@@ -22,21 +22,19 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
         forgetPasswordTokenExpiry: Date.now() + 3600000,
       });
     }
-    // const transporter = nodemailer.createTransport
     const transport = nodemailer.createTransport({
-      host: "sandbox.smtp.mailtrap.io",
-      port: 2525,
+      host: "smtp-relay.brevo.com",
+      port: 587,
       auth: {
-        user: process.env.NODEMAILER_USER,
-        pass: process.env.NODEMAILER_PASS,
+        user: "sufyanshafiq098@gmail.com",
+        pass: process.env.BREVO_KEY,
       },
     });
 
     const mailOptions = {
-      from: "sufyan@gmail.com",
+      from: "nextauth@developer.com",
       to: email,
-      subject:
-        emailType === "VERIFY" ? "Verify you email" : "Reset your password",
+      subject: emailType === "VERIFY" ? "Verify you email" : "Reset your password",
       html: `<p>Click <a href="${
         process.env.DOMAIN
       }/${verificationFor}?token=${hasehdToken}">here</a> to ${
