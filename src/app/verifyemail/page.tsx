@@ -34,7 +34,7 @@ const VerifyEmail = () => {
   useEffect(() => {
     //url after (=) the token will be extract
     const urlToken = window.location.search.split("=")[1];
-    setToken(urlToken || "");
+    setToken(decodeURIComponent(urlToken) || "");
   }, []);
 
   useEffect(() => {
