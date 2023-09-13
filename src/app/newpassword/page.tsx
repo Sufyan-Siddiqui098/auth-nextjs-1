@@ -7,6 +7,7 @@ const NewPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(false)
   const router = useRouter();
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const NewPassword = () => {
 
   const onChangePassword = async () => {
     try {
+      setLoading(true)
       const res = await fetch("/api/users/forgetpassword", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -35,6 +37,8 @@ const NewPassword = () => {
       }
     } catch (error: any) {
       toast.error(error.message);
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -58,14 +62,14 @@ const NewPassword = () => {
 
       <button
         onClick={onChangePassword}
-        className={`bg-blue-600 p-2 mt-4 rounded disabled:cursor-not-allowed ${
+        className={`bg-blue-600 p-2 ${loading?"opacity-70":""} mt-4 rounded disabled:cursor-not-allowed ${
           password !== confirmPass ? "bg-red-500" : ""
         } disabled:opacity-50`}
         disabled={
           password.length <= 0 || password !== confirmPass ? true : false
         }
       >
-        Change Password
+        {loading?"Loading":"Change Password"}
       </button>
     </div>
   );
