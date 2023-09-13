@@ -17,8 +17,8 @@ const ResetPassword = () => {
         body: JSON.stringify({email})
       })
       const json = await res.json()
-      setVerificationSend(true)
       if(res.ok){
+        setVerificationSend(true)
         toast.success(json.message)
       } else{
         toast.error(json.error || json.message)
